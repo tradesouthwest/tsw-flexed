@@ -9,6 +9,6 @@ Container > Row > Sectioned by Percentage
 - Fourths will automatically assign as one-quarter width in large screen and two halves on mobile.
 
 
-
+![screen of](https://tswdev.com/public/imgs/flexed-screenshot.png)
 ![screen of](https://tswdev.com/public/imgs/tsw-flexed-screenwide.png)
 
