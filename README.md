@@ -10,5 +10,6 @@ Container > Row > Sectioned by Percentage
 
 
 ![screen of](https://tswdev.com/public/imgs/flexed-screenshot.png)
-![screen of](https://tswdev.com/public/imgs/tsw-flexed-screenwide.png)
+
+Demo: http://tswdev.com/public/twothreefour.html
 
