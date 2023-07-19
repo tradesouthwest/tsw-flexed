@@ -3,58 +3,9 @@
 }
 
 body {
-	padding-top: 64px;
+	padding-top: 24px;
+	font-size: 16px;
 }
-
-.container {
-	width: 100%;
-	max-width: 1200px;
-	margin: 0 auto;
-}
-
-.boxed {
-	border: 1px solid rgba( 50, 50, 50, .16);
-	padding: 16px 8px;
-}
-
-.row {
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	margin-bottom: 24px;
-}
-
-.wide > .boxed {
-	width: calc(100% - 12px);
-	margin-bottom: 12px;
-}
-
-.half > .boxed {
-	width: calc(100% - 12px);
-	margin-bottom: 12px;
-}
-
-.thirds > .boxed {
-	width: calc(100% - 12px);
-	margin-bottom: 12px;
-}
-
-.thirds .boxed.joined {
-	width: calc( 100% - 12px);
-}
-
-.quarters > .boxed {
-	width: calc(50% - 6px);
-	margin-bottom: 12px;
-}
-
-.quarters {
-	align-items: start;
-	flex-flow: wrap;
-	max-width: 97.8992%;
-}
-
 .no-border {
 	border-color: transparent;
 }
@@ -92,21 +43,73 @@ body {
 	background: #efefef;
 }
 
+.container {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.boxed {
+	border: 1px solid rgba( 50, 50, 50, .16);
+	padding: 16px 8px;
+}
+
+.row {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.container .row.wide:last-child{
+    margin-top: 1em;
+}
+
+.wide > .boxed {
+	width: calc(100% - .05vw);
+
+}
+
+.half > .boxed {
+	width: calc(100% - .05vw);
+
+}
+
+.thirds > .boxed {
+	width: calc(100% - .05vw);
+
+}
+
+.thirds .boxed.joined {
+	width: calc( 100% - .05vw);
+}
+
+.quarters > .boxed {
+	width: calc(50% - 8px);
+}
+
+.quarters {
+	flex-flow: wrap;
+}
+
+.thirds, .half, .wide, .quarters{
+
+	margin-bottom: 12px;
+}
+
 @media all and (min-width: 768px) {
 	.row {
 		flex-direction: row;
 		flex-wrap: wrap;
-		justify-content: space-between;
 	}
 
 	.wide > .boxed {
 		width: calc(100% );
-		margin-bottom: 12px;
 	}
 
 	.half > .boxed {
 		width: calc(50% - 12px);
-		margin-bottom: 0;
 	}
 
 	.thirds > .boxed {
@@ -118,17 +121,14 @@ body {
 	}
 
 	.thirds > .boxed.joined .boxed {
-		width: calc( 100% - 12px;
-		);
+		width: calc( 100% - 12px);
 	}
 
 	.quarters {
 		flex-wrap: nowrap;
-		max-width: 100%;
 	}
 
 	.quarters > .boxed {
 		width: calc(25% - 21px);
-		margin-bottom: 0;
 	}
 } 
