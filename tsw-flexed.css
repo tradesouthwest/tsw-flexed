@@ -8,6 +8,18 @@ body {
 	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
+label + input,
+label + textarea,
+label + select{
+	display:flex;
+	flex-direction: column;
+	border:1px solid #818181
+}
+label {
+    display: flex;
+    margin-bottom: 8px;
+}
+
 .bkg-warn {
 	background: salmon;
 }
@@ -29,6 +41,9 @@ body {
 	background: #efefef;
 }
 
+.bkg-noted{
+	background: #daeff1
+}
 .container {
 	width: 100%;
 	max-width: 1200px;
@@ -47,7 +62,7 @@ body {
 	flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	gap: 10px;
+	gap: 12px;
 }
 
 .container .row.wide:last-child{
@@ -85,13 +100,17 @@ body {
 
 	margin-bottom: 12px;
 }
+.column{
+display: flex;
+flex-direction: column;
+}
 
 @media all and (min-width: 768px) {
 	.row {
 		flex-direction: row;
 		flex-wrap: wrap;
 	}
-
+	
 	.wide > .boxed {
 		width: calc(100% );
 	}
@@ -103,13 +122,9 @@ body {
 	.thirds > .boxed {
 		width: calc(33.33% - 16px);
 	}
-
+    /* `.joined` can be thought of as the LONGER of the two thirds. */
 	.thirds > .boxed.joined {
 		width: calc( 66.66% - 8px);
-	}
-
-	.thirds > .boxed.joined .boxed {
-		width: calc( 100% - 12px);
 	}
 
 	.quarters {
@@ -119,7 +134,30 @@ body {
 	.quarters > .boxed {
 		width: calc(25% - 21px);
 	}
+}
+figure {
+    display: flex;
+    flex-direction: column
+}
+/* figcaption should be inside of figure tag */
+figcaption{
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	background: rgba(0,0,0, .9);
+	color:white;
+	top: 0;
+	text-align: center;
+	justify-content: center;
+	min-height: 1.5em;
+	line-height: 1.5
 } 
+.centered{
+	display: flex;
+	margin: 0 auto;
+	text-align: center;
+	justify-content: center;
+}
 .no-border {
 	border-color: transparent;
 }
@@ -134,16 +172,8 @@ body {
 
 .lite-border {
 	border-color: #efefef;
+}
+.dash-border{
+	border-style: dashed;
+	border-color: green
 } 
-
-label + input,
-label + textarea,
-label + select{
-	display:flex;
-	flex-direction: column;
-	border:1px solid #818181
-}
-label {
-    display: flex;
-    margin-bottom: 8px;
-}
