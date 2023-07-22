@@ -13,3 +13,10 @@ Container > Row > Sectioned by Percentage
 
 Demo: http://tswdev.com/public/twothreefour.html
 
+Author:      Tradesouthwest
+Author URI:  https://tradesouthwest.com/
+Description: Minimal size style sheet for flexed based projects. Has navigation up to three levels depth. 
+Version:     1.0.0
+License:     GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
