@@ -1,23 +1,57 @@
+/* TSW Flexed CSS 
+Author:      Tradesouthwest
+Author URI:  https://tradesouthwest.com/
+Description: Minimal size style sheet for flexed based projects. Has navigation up to three levels depth. 
+Version:     1.0.0
+License:     GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+== Contents ==
+1. - DOM Elements
+2. - Navigation (list style. Uses ul li)
+3. - Media Queries
+4. - Content Elements (cascade late to override parent)
+============== */
+
+/* ************************************************** 1. - DOM Elements
+*/
+
 * {
 	box-sizing: border-box;
+}
+
+:root {
+	--navback: rgba(155,155,155, .96);
 }
 
 body {
 	padding-top: 24px;
 	font-size: 16px;
-	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 label + input,
 label + textarea,
-label + select{
-	display:flex;
+label + select {
+	display: flex;
 	flex-direction: column;
-	border:1px solid #818181
+	border: 1px solid #818181;
 }
+
 label {
-    display: flex;
-    margin-bottom: 8px;
+	display: flex;
+	margin-bottom: 8px;
+}
+
+a {
+	color: #029;
+}
+
+a:hover {
+	opacity: .86;
+}
+
+.bkg-dark a {
+	color: #fefefe;
 }
 
 .bkg-warn {
@@ -41,9 +75,10 @@ label {
 	background: #efefef;
 }
 
-.bkg-noted{
-	background: #daeff1
+.bkg-noted {
+	background: #daeff1;
 }
+
 .container {
 	width: 100%;
 	max-width: 1200px;
@@ -55,6 +90,9 @@ label {
 	border-style: solid;
 	border-color: rgba( 50, 50, 50, .16);
 	padding: 16px 8px;
+	/* display: grid; */
+	position: relative;
+	z-index: 2;
 }
 
 .row {
@@ -65,23 +103,20 @@ label {
 	gap: 12px;
 }
 
-.container .row.wide:last-child{
-    margin-top: 1em;
+.container .row.wide:last-child {
+	margin-top: 0;
 }
 
 .wide > .boxed {
 	width: calc(100% - .05vw);
-
 }
 
 .half > .boxed {
 	width: calc(100% - .05vw);
-
 }
 
 .thirds > .boxed {
 	width: calc(100% - .05vw);
-
 }
 
 .thirds .boxed.joined {
@@ -96,21 +131,137 @@ label {
 	flex-flow: wrap;
 }
 
-.thirds, .half, .wide, .quarters{
-
+.thirds, .half, .wide, .quarters {
 	margin-bottom: 12px;
-}
-.column{
-display: flex;
-flex-direction: column;
+	position: initial;
+	z-index: 1;
 }
 
+.column {
+	display: flex;
+	flex-direction: column;
+}
+
+/* ************************************************** 2. - Navigation
+*/
+
+.nav-container {
+	position: unset;
+	margin: 0;
+	height: 100%;
+}
+
+.nav-container ul {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+}
+
+.nav-container ul li {
+	list-style: none;
+	font-size: 1rem;
+}
+
+.nav-container li {
+	display: inherit;
+	position: relative;
+	padding: 0;
+	white-space: normal;
+}
+
+.nav-container ul li ul {
+	position: unset;
+}
+
+/* Content below nav can be wrapped in `main` to allow for z-index */
+main {
+	position: relative;
+	z-index: 1;
+}
+
+/* ************************************************** 3. - Media Queries
+*/
 @media all and (min-width: 768px) {
+	.nav-container {
+		position: relative;
+		z-index: 99999;
+	}
+
+	.nav-container ul {
+		justify-content: space-around;
+		flex-direction: row;
+	}
+
+	.nav-container a {
+		padding: 8px 12px;
+		background: var(--navback);
+		border: thin solid #aaa;
+		width: calc( 120px + 2vw );
+		min-height: 2.67em;
+		height: fit-content;
+		white-space: pre-line;
+	}
+
+	.nav-container li {
+		height: auto;
+	}
+
+	.nav-container ul li {
+		font-size: .825rem;
+		/* justify-content: space-between; */;
+	}
+
+	.nav-container ul li ul {
+		z-index: 99800;
+	}
+
+	.nav-container ul li ul li a {
+		border: 1px solid rgba(15,15,15,.96);
+	}
+
+	.nav-container ul li ul ul {
+		z-index: 99990;
+		top: calc( 1em + 16px );
+		margin-left: calc( 3em + 24px );
+	}
+
+	.nav-container ul li ul {
+		position: absolute;
+		margin-left: -2em;
+		top: calc( 1.75em + .825rem );
+		flex-direction: column;
+		visibility: hidden;
+		opacity: 0;
+		transition: visibility 0s linear 400ms, opacity 400ms;
+	}
+
+	.nav-container ul li:hover ul,
+	.nav-container ul li:focus ul,
+	.nav-container ul li:focus-within ul {
+		visibility: visible;
+		opacity: 1;
+		transition: visibility 0s linear 0s, opacity 400ms;
+	}
+
+	.nav-container ul li ul li li {
+		visibility: hidden;
+		opacity: 0;
+		transition: visibility 0s linear 400ms, opacity 400ms;
+	}
+
+	.nav-container ul li ul li:hover li,
+	.nav-container ul li ul li:focus li,
+	.nav-container ul li ul li:focus-within li {
+		visibility: visible;
+		opacity: 1;
+		transition: visibility 0s linear 0s, opacity 400ms;
+	}
+
 	.row {
 		flex-direction: row;
 		flex-wrap: wrap;
 	}
-	
+
 	.wide > .boxed {
 		width: calc(100% );
 	}
@@ -135,29 +286,35 @@ flex-direction: column;
 		width: calc(25% - 21px);
 	}
 }
+
+/* ************************************************** 4. - Content Elements
+*/
+
 figure {
-    display: flex;
-    flex-direction: column
+	display: flex;
+	flex-direction: column;
 }
 /* figcaption should be inside of figure tag */
-figcaption{
+figcaption {
 	display: flex;
 	flex-direction: row;
 	position: relative;
 	background: rgba(0,0,0, .9);
-	color:white;
+	color: white;
 	top: 0;
 	text-align: center;
 	justify-content: center;
 	min-height: 1.5em;
-	line-height: 1.5
-} 
-.centered{
+	line-height: 1.5;
+}
+
+.centered {
 	display: flex;
 	margin: 0 auto;
 	text-align: center;
 	justify-content: center;
 }
+
 .no-border {
 	border-color: transparent;
 }
@@ -173,7 +330,8 @@ figcaption{
 .lite-border {
 	border-color: #efefef;
 }
-.dash-border{
+
+.dash-border {
 	border-style: dashed;
-	border-color: green
+	border-color: green;
 } 
