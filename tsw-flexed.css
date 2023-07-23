@@ -1,7 +1,7 @@
-/* TSW Flexed CSS 
+/* TSW Flexed CSS
 Author:      Tradesouthwest
 Author URI:  https://tradesouthwest.com/
-Description: Minimal size style sheet for flexed based projects. Has navigation up to three levels depth. 
+Description: Minimal size style sheet for flexed based projects. Has navigation up to three levels depth.
 Version:     1.0.0
 License:     GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -170,11 +170,19 @@ a:hover {
 	padding: 0;
 	white-space: normal;
 }
-
-.nav-container ul li ul {
-	position: unset;
+.nav-container ul li ul{
+border-right: thin dashed #aaa;		
+border-bottom: thin dashed #aaa;		
+border-top: thin dashed #aaa;		
+margin-left: -3em;
+margin-top: .222em;
+background: rgba(122,122,122, .42);
 }
 
+.nav-container a {
+	padding: 5px 8px;
+	background: transparent;
+}
 /* Content below nav can be wrapped in `main` to allow for z-index */
 main {
 	position: relative;
@@ -213,10 +221,6 @@ main {
 		/* justify-content: space-between; */;
 	}
 
-	.nav-container ul li ul {
-		z-index: 99800;
-	}
-
 	.nav-container ul li ul li a {
 		border: 1px solid rgba(15,15,15,.96);
 	}
@@ -230,7 +234,11 @@ main {
 	.nav-container ul li ul {
 		position: absolute;
 		margin-left: -2em;
+		margin-top: unset;
 		top: calc( 1.75em + .825rem );
+		z-index: 99800;
+		border: none;
+		background: unset;
 		flex-direction: column;
 		visibility: hidden;
 		opacity: 0;
@@ -275,7 +283,7 @@ main {
 	.thirds > .boxed {
 		width: calc(33.33% - 16px);
 	}
-    /* `.joined` can be thought of as the LONGER of the two thirds. */
+        /* `.joined` can be thought of as the LONGER of the two thirds. Even if left or right of one third */
 	.thirds > .boxed.joined {
 		width: calc( 66.66% - 8px);
 	}
