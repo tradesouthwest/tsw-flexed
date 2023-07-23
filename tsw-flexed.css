@@ -151,12 +151,16 @@ a:hover {
 	position: unset;
 	margin: 0;
 	height: 100%;
+	width: 100%;
 }
 
 .nav-container ul {
 	display: flex;
 	flex-direction: column;
 	margin: 0;
+	padding: 0;
+	position: relative;
+	justify-content: space-around;
 }
 
 .nav-container ul li {
@@ -174,9 +178,10 @@ a:hover {
 border-right: thin dashed #aaa;		
 border-bottom: thin dashed #aaa;		
 border-top: thin dashed #aaa;		
-margin-left: -3em;
+margin-left: -1px;
 margin-top: .222em;
 background: rgba(122,122,122, .42);
+ 
 }
 
 .nav-container a {
@@ -198,8 +203,9 @@ main {
 	}
 
 	.nav-container ul {
-		justify-content: space-around;
+		justify-content: start;
 		flex-direction: row;
+		flex-wrap: wrap;
 	}
 
 	.nav-container a {
@@ -233,16 +239,17 @@ main {
 
 	.nav-container ul li ul {
 		position: absolute;
-		margin-left: -2em;
-		margin-top: unset;
+		justify-content: space-around;
+		margin-left: 0;
 		top: calc( 1.75em + .825rem );
 		z-index: 99800;
+		background: none;
 		border: none;
-		background: unset;
 		flex-direction: column;
 		visibility: hidden;
 		opacity: 0;
 		transition: visibility 0s linear 400ms, opacity 400ms;
+		
 	}
 
 	.nav-container ul li:hover ul,
@@ -283,7 +290,7 @@ main {
 	.thirds > .boxed {
 		width: calc(33.33% - 16px);
 	}
-        /* `.joined` can be thought of as the LONGER of the two thirds. Even if left or right of one third */
+    /* `.joined` can be thought of as the LONGER of the two thirds. */
 	.thirds > .boxed.joined {
 		width: calc( 66.66% - 8px);
 	}
