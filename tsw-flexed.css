@@ -23,12 +23,13 @@ Demo:        http://tswdev.com/public/twothreefour.html
 
 :root {
 	--navback: rgba(155,155,155, .96);
+	--font-serifs: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 body {
 	padding-top: 24px;
 	font-size: 16px;
-	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-family: var(--font-serifs)
 }
 
 label + input,
